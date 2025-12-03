@@ -4,4 +4,5 @@ AE 588 Final Project: Comparison of OpenMDAO and AeroSandBox for Trajectory Opti
 ## File Structure
 - AeroSandbox directory: test cases run with ASB 
 - dymos directory: test cases run with Dymos
-- comparison directory: scripts to compare the two libraries
+- tests directory: scripts to compare the two libraries
+- references directory: papers referenced for project
