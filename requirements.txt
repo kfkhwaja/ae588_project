@@ -3,5 +3,4 @@ dymos==1.15.0
 numpy==2.3.5
 scipy==1.16.3
 matplotlib==3.10.7
-jaxlib==0.4.31
 pandas==2.3.3
