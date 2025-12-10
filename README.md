@@ -6,3 +6,4 @@ AE 588 Final Project: Comparison of OpenMDAO and AeroSandBox for Trajectory Opti
 - dymos directory: test cases run with Dymos
 - tests directory: scripts to compare the two libraries
 - references directory: papers referenced for project
+- requirements.txt: libraries and versions used
