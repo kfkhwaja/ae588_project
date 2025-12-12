@@ -3,10 +3,10 @@
 #     return (1 - x) ** 2 + 100 * (y - x**2) ** 2
 
 # TODO
+# make these separate files so we can run on their own
 # compare with both using IPOPT
 # try increasing dimensions
 # compare iterations, wall time, function evaluations, etc.
-# maybe compare them to SciPy?
 
 #--------------------------------------------------
 # AEROSANDBOX IMPLEMENTATION 
