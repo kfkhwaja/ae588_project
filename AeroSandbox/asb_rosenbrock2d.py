@@ -25,6 +25,11 @@ x_opt = sol(x)  # Evaluates x at the point where the solver converged
 y_opt = sol(y)
 f_opt = sol(f) 
 
+# PRINTING RESULTS
+print('-'*60)
+print('Optimization Results:')
+print('-'*60)
+
 # Print values from ASB
 print(f"Optimal x (ASB)= {x_opt}")
 print(f"Optimal y (ASB) = {y_opt}")

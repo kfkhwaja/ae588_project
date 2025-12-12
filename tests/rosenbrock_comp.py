@@ -5,8 +5,7 @@
 # TODO
 # make these separate files so we can run on their own
 # compare with both using IPOPT
-# try increasing dimensions
-# compare iterations, wall time, function evaluations, etc.
+
 
 #--------------------------------------------------
 # AEROSANDBOX IMPLEMENTATION 
