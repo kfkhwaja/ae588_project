@@ -55,23 +55,26 @@ phase.add_boundary_constraint('f', loc='final', equals=0, ref=1., units='N')  # 
 phase.add_objective('energy', loc='final', ref=100)
 
 # --- configure optimizer ---
-p.driver = om.ScipyOptimizeDriver()
-p.driver.options["optimizer"] = "SLSQP"
-p.driver.options['tol'] = 1e-9
-p.driver.options['maxiter'] = 500
+# SCIPY options
+# p.driver = om.ScipyOptimizeDriver()
+# p.driver.options["optimizer"] = "SLSQP"
+# p.driver.options['tol'] = 1e-9
+# p.driver.options['maxiter'] = 500
 
-# # IPOPT options
-# p.driver.opt_settings['mu_init'] = 1e-1
-# p.driver.opt_settings['max_iter'] = 600
-# p.driver.opt_settings['constr_viol_tol'] = 1e-6
-# p.driver.opt_settings['compl_inf_tol'] = 1e-6
-# p.driver.opt_settings['tol'] = 1e-5
-# p.driver.opt_settings['print_level'] = 0
-# p.driver.opt_settings['nlp_scaling_method'] = 'gradient-based'
-# p.driver.opt_settings['alpha_for_y'] = 'safer-min-dual-infeas'
-# p.driver.opt_settings['mu_strategy'] = 'monotone'
-# p.driver.opt_settings['bound_mult_init_method'] = 'mu-based'
-# p.driver.options['print_results'] = False
+# IPOPT options
+p.driver = om.pyOptSparseDriver()
+p.driver.options["optimizer"] = "IPOPT"
+p.driver.opt_settings['mu_init'] = 1e-1
+p.driver.opt_settings['max_iter'] = 600
+p.driver.opt_settings['constr_viol_tol'] = 1e-6
+p.driver.opt_settings['compl_inf_tol'] = 1e-6
+p.driver.opt_settings['tol'] = 1e-5
+p.driver.opt_settings['print_level'] = 0
+p.driver.opt_settings['nlp_scaling_method'] = 'gradient-based'
+p.driver.opt_settings['alpha_for_y'] = 'safer-min-dual-infeas'
+p.driver.opt_settings['mu_strategy'] = 'monotone'
+p.driver.opt_settings['bound_mult_init_method'] = 'mu-based'
+p.driver.options['print_results'] = False
 
 # declare total derivative coloring to accelerate the UDE linear solves
 p.driver.declare_coloring()
