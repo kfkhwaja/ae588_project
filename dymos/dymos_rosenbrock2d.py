@@ -13,8 +13,22 @@ prob = om.Problem()
 prob.model.add_subsystem('rosenbrock', om.ExecComp('f = (1 - x) ** 2 + 100 * (y - x**2) ** 2'))
 
 # setup the optimization
-prob.driver = om.ScipyOptimizeDriver()
-prob.driver.options['optimizer'] = 'SLSQP'
+# prob.driver = om.ScipyOptimizeDriver()
+# prob.driver.options['optimizer'] = 'SLSQP'
+
+prob.driver = om.pyOptSparseDriver()
+prob.driver.options["optimizer"] = "IPOPT"
+prob.driver.opt_settings['mu_init'] = 1e-1
+prob.driver.opt_settings['max_iter'] = 600
+prob.driver.opt_settings['constr_viol_tol'] = 1e-6
+prob.driver.opt_settings['compl_inf_tol'] = 1e-6
+prob.driver.opt_settings['tol'] = 1e-5
+prob.driver.opt_settings['print_level'] = 0
+prob.driver.opt_settings['nlp_scaling_method'] = 'gradient-based'
+prob.driver.opt_settings['alpha_for_y'] = 'safer-min-dual-infeas'
+prob.driver.opt_settings['mu_strategy'] = 'monotone'
+prob.driver.opt_settings['bound_mult_init_method'] = 'mu-based'
+prob.driver.options['print_results'] = False
 
 prob.model.add_design_var('rosenbrock.x', lower=-50, upper=50)
 prob.model.add_design_var('rosenbrock.y', lower=-50, upper=50)
